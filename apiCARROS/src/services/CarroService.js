@@ -50,5 +50,16 @@ module.exports = {
                     aceito(results);                
             });
         });
+    },
+    
+        excluir: (codigo)=>{
+            return new Promise((aceito, rejeitado)=>{
+    
+                db.query('delete  FROM carros where codigo = ?',[codigo], (error,results)=>{
+                    if (error) {rejeitado(error);return;}
+                    aceito(results);
+                });
+            });
+        }
     }
-}
+
